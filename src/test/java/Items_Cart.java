@@ -33,7 +33,7 @@ public class Items_Cart {
                 //driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click(); //This fails as ADD TO CART is dynamic post click. Not recommended to search with text field.
                 driver.findElements(By.xpath("//div[@class='product-action']")).get(i).click();
                 j++;
-                if (j==4)
+                if (j== vegetablesCart.length)
                     break;
             }
         }
