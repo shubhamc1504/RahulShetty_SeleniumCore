@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class JavaStreams {
@@ -70,7 +72,10 @@ public class JavaStreams {
     public void streamCollect()
     {
         List<Integer> values = Arrays.asList(3,2,5,6,6,8,9,9,7,1,1);
+        //print unique numbers
         values.stream().distinct().forEach(s->System.out.println(s));
+        List<Integer> li = values.stream().distinct().sorted().collect(Collectors.toList());
+        System.out.println(li.get(2));
     }
 }
 
