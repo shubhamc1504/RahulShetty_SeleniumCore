@@ -66,5 +66,11 @@ public class JavaStreams {
                 .map(s->s.toUpperCase())
                 .forEach(s->System.out.println(s));
     }
+    @Test
+    public void streamCollect()
+    {
+        List<Integer> values = Arrays.asList(3,2,5,6,6,8,9,9,7,1,1);
+        values.stream().distinct().forEach(s->System.out.println(s));
+    }
 }
 
