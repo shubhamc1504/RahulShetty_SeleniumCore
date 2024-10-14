@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class JavaStreams {
@@ -55,5 +57,14 @@ public class JavaStreams {
                 .filter(s->s.endsWith("r"))
                 .map(s->s.toUpperCase())
                 .forEach(s->System.out.println(s));
+
+        //sorting array into Stream
+        List<String> names = Arrays.asList("Ronaldo", "Azpillicueta", "Adama", "Acosta", "Messi", "Ansu");
+        names.stream()
+                .filter(s->s.startsWith("A"))
+                .sorted()
+                .map(s->s.toUpperCase())
+                .forEach(s->System.out.println(s));
     }
 }
+
