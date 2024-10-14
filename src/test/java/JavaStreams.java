@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class JavaStreams {
     //@Test
@@ -29,7 +30,7 @@ public class JavaStreams {
     }
 
 
-    @Test
+    //@Test
     public void streamFilter()
     {
         ArrayList<String> names = new ArrayList<String>();
@@ -44,5 +45,15 @@ public class JavaStreams {
 
         Long c = names.stream().filter(s->s.startsWith("S")).count();
         System.out.println(c);
+    }
+
+    @Test
+    public void streamMap()
+    {
+        //prints name which has last char r to upper case
+        Stream.of("Shubham", "Ajinkya", "Sachin", "Siddharth", "Sagar", "Sahil", "Mayur")
+                .filter(s->s.endsWith("r"))
+                .map(s->s.toUpperCase())
+                .forEach(s->System.out.println(s));
     }
 }
