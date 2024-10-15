@@ -7,7 +7,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Pagination {
+public class Pagination { 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
