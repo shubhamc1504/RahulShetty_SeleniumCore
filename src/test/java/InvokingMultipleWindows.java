@@ -1,14 +1,14 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
 public class InvokingMultipleWindows {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com/angularpractice/");
@@ -26,7 +26,14 @@ public class InvokingMultipleWindows {
         //a[href*='https://courses.rahulshettyacademy.com/p']
         String courseName = driver.findElements(By.cssSelector("a[href*='https://courses.rahulshettyacademy.com/p']")).get(1).getText();
         driver.switchTo().window(parentWindow);
-        driver.findElement(By.cssSelector("[name='name']")).sendKeys(courseName);
+        WebElement name = driver.findElement(By.cssSelector("[name='name']"));
+        name.sendKeys(courseName);
+        //Screenshot
+        File file = name.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file, new File("logo.png"));
         //driver.quit();
+        //Get height and width of name text box
+        System.out.println(name.getRect().getDimension().getHeight());
+        System.out.println(name.getRect().getDimension().getWidth());
     }
 }
